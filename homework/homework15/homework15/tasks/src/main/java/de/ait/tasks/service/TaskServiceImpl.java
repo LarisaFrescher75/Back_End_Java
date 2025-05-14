@@ -1,9 +1,9 @@
 package de.ait.tasks.service;
 
-
 import de.ait.tasks.dto.TaskCreateDto;
 import de.ait.tasks.model.Task;
 import de.ait.tasks.repository.TaskRepository;
+import jakarta.annotation.Priority;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,16 +23,20 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public Task getTaskById(Long id) {
         return repository.findById(id);
+                //.orElseThrow(() -> new RuntimeException("Task not found"));
     }
 
     @Override
     public Task createTask(TaskCreateDto dto) {
-        Task task = new Task(null, dto.getTitle(), dto.getDescription()); // ID = null
+        Task task = new Task(null, dto.getTitle(), dto.getDescription(), dto.getPriority());
         return repository.save(task);
     }
 
     @Override
     public Task deleteTask(Long id) {
-        return repository.delete(id);
+        Task task = getTaskById(id);
+        repository.delete(id);
+        return task;
     }
 }
+
