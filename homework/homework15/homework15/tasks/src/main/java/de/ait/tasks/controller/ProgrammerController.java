@@ -1,6 +1,6 @@
 package de.ait.tasks.controller;
 
-import de.ait.tasks.dto.ProgrammerCreateDto;
+import de.ait.tasks.dto.ProgrammerResponseDto;
 import de.ait.tasks.model.Programmer;
 import de.ait.tasks.model.Task;
 import de.ait.tasks.service.ProgrammerService;
@@ -36,7 +36,7 @@ public class ProgrammerController {
     }
 
     @PostMapping("/programmers")
-    public Programmer createProgrammer(@RequestBody ProgrammerCreateDto dto) {
+    public Programmer createProgrammer(@RequestBody ProgrammerResponseDto dto) {
         return programmerService.createProgrammer(dto);
     }
 }

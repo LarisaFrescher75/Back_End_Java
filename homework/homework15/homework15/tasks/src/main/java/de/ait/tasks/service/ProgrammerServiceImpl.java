@@ -1,6 +1,6 @@
 package de.ait.tasks.service;
 
-import de.ait.tasks.dto.ProgrammerCreateDto;
+import de.ait.tasks.dto.ProgrammerResponseDto;
 import de.ait.tasks.model.Programmer;
 import de.ait.tasks.model.Task;
 import de.ait.tasks.repository.ProgrammerRepository;
@@ -36,7 +36,7 @@ public class ProgrammerServiceImpl implements ProgrammerService {
     }
 
     @Override
-    public Programmer createProgrammer(ProgrammerCreateDto dto) {
+    public Programmer createProgrammer(ProgrammerResponseDto dto) {
         Programmer programmer = new Programmer(null, dto.getName(), dto.getEmail());
         return repository.save(programmer);
     }

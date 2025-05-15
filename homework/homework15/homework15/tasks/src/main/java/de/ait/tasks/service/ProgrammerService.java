@@ -1,6 +1,6 @@
 package de.ait.tasks.service;
 
-import de.ait.tasks.dto.ProgrammerCreateDto;
+import de.ait.tasks.dto.ProgrammerResponseDto;
 import de.ait.tasks.model.Programmer;
 import de.ait.tasks.model.Task;
 
@@ -11,6 +11,6 @@ public interface ProgrammerService {
     Programmer getProgrammerById(Long id);
     List<Task> getTasksByProgrammerId(Long id);
     void addTaskToProgrammer(Long programmerId, Long taskId);
-    Programmer createProgrammer(ProgrammerCreateDto dto);
+    Programmer createProgrammer(ProgrammerResponseDto dto);
 }
 

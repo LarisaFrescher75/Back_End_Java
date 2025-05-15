@@ -1,9 +1,8 @@
 package de.ait.tasks.service;
 
-import de.ait.tasks.dto.TaskCreateDto;
+import de.ait.tasks.dto.TaskResponseDto;
 import de.ait.tasks.model.Task;
 import de.ait.tasks.repository.TaskRepository;
-import jakarta.annotation.Priority;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +26,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task createTask(TaskCreateDto dto) {
+    public Task createTask(TaskResponseDto dto) {
         Task task = new Task(null, dto.getTitle(), dto.getDescription(), dto.getPriority());
         return repository.save(task);
     }

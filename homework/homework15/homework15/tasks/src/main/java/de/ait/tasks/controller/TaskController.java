@@ -1,6 +1,6 @@
 package de.ait.tasks.controller;
 
-import de.ait.tasks.dto.TaskCreateDto;
+import de.ait.tasks.dto.TaskResponseDto;
 import de.ait.tasks.model.Task;
 import de.ait.tasks.service.TaskService;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +26,7 @@ public class TaskController {
     }
 
     @PostMapping("/tasks")
-    public Task createNewTask(@RequestBody TaskCreateDto taskDto) {
+    public Task createNewTask(@RequestBody TaskResponseDto taskDto) {
         return taskService.createTask(taskDto);
     }
 
